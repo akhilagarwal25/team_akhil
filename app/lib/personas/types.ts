@@ -18,6 +18,8 @@ export interface Persona {
   dataSources: string[];
   tools: string[];
   description: string;
+  isDynamic?: boolean;  // true = loaded from storage, false/undefined = hardcoded
+  createdAt?: number;  // Unix timestamp when created
 }
 
 export interface Message {
