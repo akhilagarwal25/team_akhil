@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Persona } from "../lib/personas/types";
 
 // ─── Persona Data ────────────────────────────────────────────────────────────
@@ -430,16 +431,39 @@ const initialMessages: Message[] = [
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function Dashboard() {
+  const router = useRouter();
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [selectedPersona, setSelectedPersona] = useState<string>("ceo");
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [dynamicAgents, setDynamicAgents] = useState<Persona[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  useEffect(() => {
+    const loadDynamic = async () => {
+      try {
+        const res = await fetch("/api/agents");
+        const data = await res.json();
+        if (data.agents) {
+          setDynamicAgents(data.agents);
+        }
+      } catch (e) {
+        console.error("Failed to load dynamic agents:", e);
+      }
+    };
+    loadDynamic();
+
+    const refresh = () => loadDynamic();
+    window.addEventListener("agents-updated", refresh);
+    return () => window.removeEventListener("agents-updated", refresh);
+  }, []);
+
+  const allPersonas = [...personas, ...dynamicAgents];
 
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
@@ -500,7 +524,7 @@ export default function Dashboard() {
   const grouped = teamOrder
     .map((team) => ({
       team,
-      personas: personas.filter((p) => p.team === team),
+      personas: allPersonas.filter((p) => p.team === team),
     }))
     .filter((g) => g.personas.length > 0);
 
@@ -522,7 +546,7 @@ export default function Dashboard() {
             </div>
             <div>
               <div className="text-sm font-semibold text-white leading-none">Team Akhil</div>
-              <div className="text-xs text-zinc-500 leading-none mt-0.5">33 Personas</div>
+              <div className="text-xs text-zinc-500 leading-none mt-0.5">{allPersonas.length} Personas</div>
             </div>
           </div>
         </div>
@@ -578,7 +602,7 @@ export default function Dashboard() {
         <div className="border-t border-white/10 px-4 py-3">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs text-zinc-500">All 29 personas ready</span>
+            <span className="text-xs text-zinc-500">All {allPersonas.length} personas ready</span>
           </div>
         </div>
       </aside>
@@ -622,12 +646,20 @@ export default function Dashboard() {
               <div className="w-px h-8 bg-white/10" />
               <div className="text-center">
                 <div className="text-xs text-zinc-500 uppercase tracking-wider">Active Personas</div>
-                <div className="text-sm font-semibold text-white">29</div>
+                <div className="text-sm font-semibold text-white">{allPersonas.length}</div>
               </div>
               <div className="w-px h-8 bg-white/10" />
               <div className="text-center">
                 <div className="text-xs text-zinc-500 uppercase tracking-wider">Status</div>
                 <div className="text-sm font-semibold text-emerald-400">Building</div>
+              </div>
+              <div className="w-px h-8 bg-white/10" />
+              <button
+                onClick={() => router.push("/agent-creator")}
+                className="px-3 py-1.5 text-xs bg-amber-500 hover:bg-amber-400 text-black rounded-lg font-medium transition-colors"
+              >
+                + Create Agent
+              </button>
               </div>
             </div>
           </div>
