@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Persona } from "../lib/personas/types";
 
@@ -28,6 +28,14 @@ const emptyList = (count = 0): ListField[] =>
   Array.from({ length: count }, () => ({ id: crypto.randomUUID(), value: "" }));
 
 export default function AgentCreatorPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black" />}>
+      <AgentCreatorContent />
+    </Suspense>
+  );
+}
+
+function AgentCreatorContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
