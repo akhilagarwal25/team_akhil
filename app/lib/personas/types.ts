@@ -1,12 +1,4 @@
-export type PersonaTeam =
-  | "Executive"
-  | "Finance"
-  | "Growth"
-  | "Industry"
-  | "Future"
-  | "Ops"
-  | "Compliance"
-  | "Intelligence";
+export type PersonaTeam = string;
 
 export interface Persona {
   id: string;
