@@ -37,9 +37,13 @@ echo "  Dependencies installed."
 echo ""
 echo "[3/11] Setting up PostgreSQL..."
 
-sudo -u postgres psql << 'PGEOF'
+# Generate secure password
+DB_PASSWORD=$(openssl rand -hex 32)
+echo "  DB password generated (saved to .env later)"
+
+sudo -u postgres psql << PGEOF
 CREATE DATABASE teamakhil;
-CREATE USER teamadmin WITH ENCRYPTED PASSWORD 'CHANGE_THIS_PASSWORD';
+CREATE USER teamadmin WITH ENCRYPTED PASSWORD '$DB_PASSWORD';
 GRANT ALL PRIVILEGES ON DATABASE teamakhil TO teamadmin;
 ALTER USER teamadmin WITH SUPERUSER;
 PGEOF
@@ -143,7 +147,7 @@ echo ""
 echo "[9/11] Creating config files..."
 
 # .env
-cat > .env << 'ENV_EOF'
+cat > .env << ENV_EOF
 # AI / OpenRouter
 OPENROUTER_API_KEY=sk-or-v1-YOUR_OPENROUTER_KEY_HERE
 OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
@@ -160,7 +164,7 @@ ANTHROPIC_BASE_URL=https://api.codemax.pro
 COMMANDCODE_API_KEY=user_YOUR_COMMANDCODE_APIKEY_HERE
 
 # Database
-DATABASE_URL=postgresql://teamadmin:CHANGE_THIS_PASSWORD@localhost:5432/teamakhil
+DATABASE_URL=postgresql://teamadmin:${DB_PASSWORD}@localhost:5432/teamakhil
 
 # Redis
 REDIS_URL=redis://localhost:6379
