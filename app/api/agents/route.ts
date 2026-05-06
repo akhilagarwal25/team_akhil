@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { listAgents, saveAgent } from "@/lib/personas/storage";
-import { Persona } from "@/lib/personas/types";
+import { listAgents, saveAgent } from "../../lib/personas/storage";
+import { Persona } from "../../lib/personas/types";
+import { getAllPersonas } from "../../lib/personas/dynamic";
 
 function validatePersona(data: unknown): data is Persona {
   if (typeof data !== "object" || data === null) return false;
@@ -20,7 +21,7 @@ function validatePersona(data: unknown): data is Persona {
 
 export async function GET() {
   try {
-    const agents = await listAgents();
+    const agents = await getAllPersonas();
     return NextResponse.json({ agents });
   } catch (error) {
     console.error("[Agents GET] Error:", error);

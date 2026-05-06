@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { generateJSON } from "@/lib/openrouter";
-import { Persona } from "@/lib/personas/types";
+import { generateJSON } from "../../../lib/openrouter";
+import { Persona } from "../../../lib/personas/types";
 
 interface GenerateRequest {
   description: string;

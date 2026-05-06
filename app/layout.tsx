@@ -7,9 +7,14 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "Team Akhil AI Command Center",
-  description: "29 AI personas coordinating Akhil Agarwal's 5-6 CR/year portfolio",
+  description: "AI Employee Command Center — build agents on demand, run 24/7",
 };
 
 export default function RootLayout({

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAgent, deleteAgent, saveAgent } from "@/lib/personas/storage";
-import { Persona } from "@/lib/personas/types";
+import { getAgent, deleteAgent, saveAgent } from "../../../lib/personas/storage";
+import { Persona } from "../../../lib/personas/types";
+import { staticPersonasList } from "../../../lib/personas/dynamic";
 
 function validatePersona(data: unknown): data is Persona {
   if (typeof data !== "object" || data === null) return false;
@@ -23,7 +24,12 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const agent = await getAgent(id);
+  // Check dynamic (stored) agents first
+  let agent = await getAgent(id);
+  if (!agent) {
+    // Fall back to static personas
+    agent = staticPersonasList.find((p) => p.id === id) ?? null;
+  }
   if (!agent) {
     return NextResponse.json({ error: "Agent not found" }, { status: 404 });
   }

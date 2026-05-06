@@ -8,13 +8,15 @@ const DEFAULT_COLOR = { bg: "bg-amber-500/10", text: "text-amber-400", border: "
 
 const TEAM_COLORS = [
   { team: "Finance",       bg: "bg-emerald-500/10", text: "text-emerald-400", border: "border-emerald-500/30", dot: "bg-emerald-400" },
-  { team: "Operations",    bg: "bg-cyan-500/10",    text: "text-cyan-400",    border: "border-cyan-500/30",    dot: "bg-cyan-400" },
-  { team: "Sales",         bg: "bg-orange-500/10",  text: "text-orange-400",  border: "border-orange-500/30",  dot: "bg-orange-400" },
-  { team: "Marketing",     bg: "bg-pink-500/10",    text: "text-pink-400",    border: "border-pink-500/30",    dot: "bg-pink-400" },
-  { team: "HR",           bg: "bg-purple-500/10",  text: "text-purple-400",  border: "border-purple-500/30",  dot: "bg-purple-400" },
-  { team: "Warehouse",    bg: "bg-blue-500/10",    text: "text-blue-400",    border: "border-blue-500/30",    dot: "bg-blue-400" },
-  { team: "Intelligence", bg: "bg-teal-500/10",    text: "text-teal-400",    border: "border-teal-500/30",    dot: "bg-teal-400" },
-  { team: "Executive",    bg: "bg-amber-500/10",   text: "text-amber-400",   border: "border-amber-500/30",   dot: "bg-amber-400" },
+  { team: "Growth",        bg: "bg-orange-500/10",  text: "text-orange-400",  border: "border-orange-500/30",  dot: "bg-orange-400" },
+  { team: "Industry",      bg: "bg-cyan-500/10",    text: "text-cyan-400",    border: "border-cyan-500/30",    dot: "bg-cyan-400" },
+  { team: "Future",        bg: "bg-violet-500/10",  text: "text-violet-400",  border: "border-violet-500/30",  dot: "bg-violet-400" },
+  { team: "Ops",           bg: "bg-blue-500/10",    text: "text-blue-400",    border: "border-blue-500/30",    dot: "bg-blue-400" },
+  { team: "Operations",    bg: "bg-blue-500/10",    text: "text-blue-400",    border: "border-blue-500/30",    dot: "bg-blue-400" },
+  { team: "Compliance",    bg: "bg-red-500/10",     text: "text-red-400",     border: "border-red-500/30",     dot: "bg-red-400" },
+  { team: "Intelligence",   bg: "bg-teal-500/10",    text: "text-teal-400",    border: "border-teal-500/30",    dot: "bg-teal-400" },
+  { team: "Brand",         bg: "bg-pink-500/10",    text: "text-pink-400",    border: "border-pink-500/30",    dot: "bg-pink-400" },
+  { team: "Executive",     bg: "bg-amber-500/10",   text: "text-amber-400",   border: "border-amber-500/30",   dot: "bg-amber-400" },
 ];
 
 function getTeamColor(team: string) {
@@ -71,9 +73,14 @@ export default function Dashboard() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userMsg.content, history: messages.map((m) => ({ role: m.role, content: m.content })) }),
+        body: JSON.stringify({ message: userMsg.content, history: messages.map((m) => ({ role: m.role, content: m.content })), agentId: selectedAgent }),
       });
       const data = await res.json();
+      if (data.action?.type === "create_agent") {
+        const params = new URLSearchParams({ preview: data.action.preview });
+        router.push(`/agent-creator?${params}`);
+        return;
+      }
       setMessages((p) => [...p, { id: `a-${Date.now()}`, role: "assistant", content: data.response || "Agent is thinking...", timestamp: Date.now() }]);
     } catch {
       setMessages((p) => [...p, { id: `e-${Date.now()}`, role: "assistant", content: "Connection error. Try again.", timestamp: Date.now() }]);
