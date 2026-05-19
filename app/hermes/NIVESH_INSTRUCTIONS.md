@@ -11,20 +11,18 @@ REPORTS TO: Dhan (Finance Head)
 SYNERGY: Works with Gyan (data), Dhan (approval)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    NIVESH'S RESPONSIBILITIES
+                    NIVESH RESPONSIBILITIES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 1. TECHNICAL ANALYSIS
-   - Chart patterns (support/resistance)
-   - Indicators (RSI, MACD, Moving Averages)
-   - Volume analysis
+   - RSI, MACD, Moving Averages
+   - Support/Resistance levels
    - Trend identification
 
 2. FUNDAMENTAL ANALYSIS
-   - Company financials
+   - Company financials (via Perplexity)
    - Sector trends
    - PE ratios, EPS
-   - Industry position
 
 3. SWING TRADE RECOMMENDATIONS
    - 5-15 day trades
@@ -32,228 +30,187 @@ SYNERGY: Works with Gyan (data), Dhan (approval)
    - Stop loss levels
    - Target prices
 
-4. PORTFOLIO MONITORING
-   - Track recommended stocks
+4. PORTFOLIO TRACKING
+   - Track recommendations
+   - Performance metrics
    - Alert on price movements
-   - Performance tracking
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    NIVESH × DHAN
+                    NIVESH ARCHITECTURE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Dhan is Nivesh's boss. Nivesh reports to Dhan.
-
-Nivesh → Dhan: "Here's a swing trade opportunity"
-Dhan → Nivesh: "Approved. Max ₹10,000 per trade."
-
-Nivesh → Dhan: "Weekly performance report"
-Dhan → Nivesh: "Your accuracy is 65%. Keep improving."
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    SWING TRADE FORMAT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Nivesh provides this format for each recommendation:
-
-```
-📈 SWING TRADE ALERT
-
-Stock: [TATACONSUMP]
-Price Now: ₹280
-Entry: ₹275-280
-Target: ₹310 (+10%)
-Stop Loss: ₹265 (-5%)
-Time Frame: 10 days
-Confidence: 75%
-
-Technical:
-- RSI: 42 (oversold)
-- MACD: Bullish crossover
-- Support: ₹270
-
-Fundamental:
-- PE: 28 (reasonable)
-- Quarterly results: Beat estimates
-- Sector outlook: Positive
-
-Risk/Reward: 1:2
-```
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    SWING TRADE RULES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-| Rule | Value |
-|------|-------|
-| Max investment per trade | ₹10,000 |
-| Max portfolio allocation | 20% of capital |
-| Max loss per trade | 5% |
-| Min risk/reward ratio | 1:1.5 |
-| Trade horizon | 5-15 days |
-| Max concurrent trades | 3 |
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    NIVESH × GYAN
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Gyan fetches data for Nivesh:
-
-Nivesh → Gyan: "Get stock data for [TICKER]"
-Gyan → Nivesh:
-{
-  price: 280,
-  volume: 5M,
-  high_52w: 320,
-  low_52w: 180,
-  pe: 28,
-  eps: 10
-}
-
-Nivesh → Gyan: "Get news for [TICKER]"
-Gyan → Nivesh:
-{
-  news: [...],
-  sentiment: "positive",
-  insider_trading: false
-}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    PERFORMANCE TRACKING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Nivesh tracks every recommendation:
-
-```
-NIVESH Performance Report
-
-Total Recommendations: 25
-Successful: 16
-Failed: 7
-Pending: 2
-Accuracy: 64%
-
-Avg Gain on Success: +8.5%
-Avg Loss on Failure: -4.2%
-Net Return: +12.3%
-
-Best Trade: [TICKER] +15%
-Worst Trade: [TICKER] -5%
-
-This Week: +3.2%
-This Month: +8.7%
-```
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    NIVESH WEEKLY REPORT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Every Friday, Nivesh reports to Dhan:
-
-```
-📊 NIVESH Weekly Report
-
-RECOMMENDATIONS THIS WEEK:
-1. [TICKER] - Entry: ₹X → Current: ₹Y → P/L: +X%
-2. [TICKER] - Entry: ₹X → Current: ₹Y → P/L: -X%
-...
-
-OPEN POSITIONS:
-1. [TICKER] - Entry: ₹X → Current: ₹Y → Days left: N
-...
-
-NEW RECOMMENDATIONS FOR NEXT WEEK:
-1. [TICKER]
-   - Entry: ₹X
-   - Target: ₹Y (+X%)
-   - Stop: ₹Z
-   - Horizon: X days
-   - Confidence: X%
-
-WEEKLY PERFORMANCE:
-- Wins: X, Losses: X
-- Accuracy: X%
-- Total P/L: +/-$X
-
-RECOMMENDATIONS FOR DHAN:
-- Continue current strategy
-- Or adjust parameters
-```
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    NIVESH API ENDPOINTS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-GET /api/nivesh/recommendations - Current recommendations
-GET /api/nivesh/performance - Track record
-GET /api/nivesh/portfolio - Open positions
-POST /api/nivesh/analyze - Analyze a stock
-GET /api/nivesh/weekly - Weekly report
+┌─────────────────────────────────────────────────────────────────┐
+│                    NIVESH SYSTEM                                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  LOCAL MACHINE (SmartAPI Access)                                │
+│  ┌─────────────────────┐                                        │
+│  │ nivesh_local.py    │                                        │
+│  │ - Fetches live data │                                        │
+│  │ - Stores to SQLite  │                                        │
+│  │ - Pushes to Hermes  │                                        │
+│  └─────────────────────┘                                        │
+│            │                                                      │
+│            ▼                                                      │
+│  ┌─────────────────────┐                                        │
+│  │ SmartAPI (Angel One)│                                        │
+│  │ Live NSE/BSE data   │                                        │
+│  └─────────────────────┘                                        │
+│                                                                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  HERMES SERVER (No SmartAPI)                                    │
+│  ┌─────────────────────┐                                        │
+│  │ nivesh_data.py      │                                        │
+│  │ - yfinance fallback │                                        │
+│  │ - Nifty 200 stocks │                                        │
+│  └─────────────────────┘                                        │
+│            │                                                      │
+│            ▼                                                      │
+│  ┌─────────────────────┐  ┌─────────────────────┐             │
+│  │ nivesh_technical.py │  │ nivesh_trading.py   │             │
+│  │ - pandas-ta         │  │ - Swing trades      │             │
+│  │ - Indicators        │  │ - Recommendations    │             │
+│  └─────────────────────┘  └─────────────────────┘             │
+│            │                                                      │
+│            ▼                                                      │
+│  ┌─────────────────────┐  ┌─────────────────────┐             │
+│  │ nivesh_research.py  │  │ nivesh_tracker.py   │             │
+│  │ - Perplexity Sonar  │  │ - Portfolio track    │             │
+│  │ - News sentiment    │  │ - Performance       │             │
+│  └─────────────────────┘  └─────────────────────┘             │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                     NIVESH DATA SOURCES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Nivesh uses multiple data sources:
-
-1. ANGEL ONE SMARTAPI (Live Data)
-   - LTP (Last Traded Price)
-   - Candle data (historical)
-   - OHLC, volume
+1. SMARTAPI (Local Machine)
+   - Live NSE/BSE prices
+   - Real-time LTP
+   - Historical candles
    - Market depth
 
-2. PERPLEXITY SONAR (Research)
+2. YFINANCE (Server Fallback)
+   - Historical data
+   - Company info
+   - Free backup
+
+3. PERPLEXITY SONAR (Research)
    - Real-time news
    - Sentiment analysis
    - Company fundamentals
    - Sector trends
 
-3. TECHNICAL INDICATORS (Calculated)
-   - RSI (Relative Strength Index)
-   - SMA (Simple Moving Averages)
-   - Support/Resistance levels
-   - MACD, Volume analysis
+4. PANDAS-TA (Technical Analysis)
+   - RSI (14, 7)
+   - SMA/EMA (20, 50, 200)
+   - MACD + Signal
+   - Bollinger Bands
+   - ATR, Stochastic, ADX
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    NIVESH × GYAN
+                    NIVESH FILES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Gyan fetches raw data
-Nivesh analyzes and decides
-Nivesh → Dhan: Final recommendation
-Dhan approves or rejects
+LOCAL MACHINE:
+/scripts/nivesh_local.py      - SmartAPI data fetcher
+/scripts/nivesh_technical.py  - Technical analysis
+/scripts/nivesh_trading.py    - Swing trade logic
+/scripts/nivesh_tracker.py    - Portfolio tracking
+
+SERVER (Hermes):
+/app/lib/nivesh-data.ts       - Stock data + Nifty 200
+/app/lib/nivesh.ts            - SmartAPI wrapper
+/app/lib/nivesh-research.ts   - Perplexity research
+/app/api/nivesh/*            - API endpoints
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    NIVESH MCP SERVER
+                    NIVESH API ENDPOINTS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Angel One MCP Server: /scripts/mcp-angelone.py
-
-Tools:
-- get_ltp(symbol) - Live price
-- get_candles(symbol, days) - Historical data
-- search_symbols(query) - Find stocks
-- get_portfolio() - Holdings
-- get_positions() - Open trades
-
-Nivesh Research: /app/lib/nivesh-research.ts
-
-Functions:
-- researchStock(symbol) - Full research via Perplexity
-- getNewsSentiment(symbol) - News sentiment
-- getTradingInsight(symbol, technicalData) - Trading recommendation
-- compareStocks(symbols) - Compare multiple stocks
+GET /api/nivesh/stocks?action=list     - List all stocks
+GET /api/nivesh/stocks?action=sectors   - List sectors
+GET /api/nivesh/stocks?action=sector&sector=IT
+GET /api/nivesh/analyze?symbol=RELIANCE - Full analysis
+GET /api/nivesh/research?symbol=RELIANCE - Research
+GET /api/nivesh/trade?symbol=RELIANCE   - Swing trade
+GET /api/nivesh/performance             - Track record
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    NIVESH TRADING STYLE
+                    NIVESH SWING TRADE FORMAT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Nivesh follows SMART trading:
-
-S - Strategic entries (support levels)
-M - Momentum confirmation (volume + trend)
-A - Adequate risk (max 5% per trade)
-R - Realistic targets (1:1.5 minimum)
-T - Time-bound (5-15 days max)
+Recommendation:
+{
+  "symbol": "RELIANCE",
+  "price": 1320,
+  "recommendation": "BUY",
+  "confidence": 75,
+  "entry": { "min": 1318, "max": 1322 },
+  "target_1": 1360,
+  "target_2": 1400,
+  "stop_loss": 1290,
+  "risk_reward": 2,
+  "timeframe": "5-15 days"
+}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+                    NIVESH STOCKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Nifty 200 Coverage:
+- Auto & Ancillaries (12 stocks)
+- Banks & Financials (20 stocks)
+- IT & Tech (10 stocks)
+- FMCG & Consumer (10 stocks)
+- Pharma (10 stocks)
+- Metals & Mining (8 stocks)
+- Power & Energy (8 stocks)
+- Construction (5 stocks)
+- Telecom & Media (3 stocks)
+- Retail & Textiles (4 stocks)
+
+Total: 90+ stocks tracked
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    NIVESH × DHAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Weekly Report to Dhan:
+{
+  "accuracy": 65,
+  "wins": 8,
+  "losses": 4,
+  "avg_gain": 8.5,
+  "avg_loss": 4.2,
+  "recommendation": "Continue strategy"
+}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    NIVESH OPENROUTER MODELS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Research Models (OpenRouter):
+- perplexity/sonar - Fast search
+- perplexity/sonar-reasoning - Reasoning
+- perplexity/sonar-deep-research - Deep research
+- deepseek/deepseek-v4-flash - Fast analysis
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    NIVESH TRACKING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Performance Metrics:
+- Accuracy % (wins / total)
+- Avg gain on wins
+- Avg loss on stops
+- Win/Loss ratio
+- Expected return
+
+Trade Rules:
+- Max loss per trade: 5%
+- Min risk/reward: 1:2
+- Max concurrent trades: 3
+- Max investment per trade: ₹10,000
